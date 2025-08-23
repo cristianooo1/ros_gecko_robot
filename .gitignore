@@ -1,0 +1,16 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# General
+*.pyc
+__pycache__/
+.DS_Store
+*~
+*.swp
+*.swo
