@@ -11,15 +11,13 @@ xacroRelativePath = 'model/onshape_robot.xacro'
 
 rvizRelativePath = 'config/config.rviz'
 
-def generate_launch_description(): 
+def generate_launch_description():
 
-    pathModelFile = os.path.join(get_package_share_directory(packageName), xacroRelativePath) 
-
-    robotDescription = xacro.process_file(pathModelFile).toxml() 
+    share_dir = get_package_share_directory(packageName) 
+    xacroFile = os.path.join(share_dir, 'model', 'onshape_robot.xacro')
+    robotDescription = xacro.process_file(xacroFile).toxml()
 
     rvizPath = os.path.join(get_package_share_directory(packageName), rvizRelativePath)
-
-    params = {'robot_description': robotDescription}
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',

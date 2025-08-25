@@ -1,15 +1,16 @@
-
 import os 
 from ament_index_python.packages import get_package_share_directory
+from launch.substitutions import LaunchConfiguration
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, AppendEnvironmentVariable 
+from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 import xacro 
 
 def generate_launch_description(): 
 
-    packageName = 'gecko_robot'
+    packageName = 'gecko_robot' 
+    rvizRelativePath = 'config/config.rviz' 
 
     share_dir = get_package_share_directory(packageName) 
 
@@ -23,7 +24,13 @@ def generate_launch_description():
 
     xacroFile = os.path.join(share_dir, 'model', 'onshape_robot.xacro')
     robotDescription = xacro.process_file(xacroFile).toxml()
-    
+
+    rvizPath = os.path.join(get_package_share_directory(packageName), rvizRelativePath) 
+
+    spawn_x = LaunchConfiguration('spawn_x')
+    spawn_y = LaunchConfiguration('spawn_y')
+    spawn_z = LaunchConfiguration('spawn_z')
+
     gazebo_rosPackageLaunch = PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('ros_gz_sim'), 
                                                                         'launch', 'gz_sim.launch.py'))
     
@@ -39,8 +46,9 @@ def generate_launch_description():
         arguments=[
             '-name', packageName,
             '-topic', 'robot_description',
-            '-z', '0.25'
-
+            '-x', spawn_x,
+            '-y', spawn_y,
+            '-z', spawn_z
         ],
         output='screen'
     )
@@ -52,6 +60,23 @@ def generate_launch_description():
         output='screen',
         parameters=[{'robot_description': robotDescription,
                     'use_sim_time': True}]
+    )
+
+    joint_state_publisher_gui_node = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+        output="screen",
+        parameters=[{"use_sim_time": True}]
+    )
+
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output="screen",
+        arguments=['-d', rvizPath],
+        parameters=[{"use_sim_time": True}]
     )
 
     bridge_params = os.path.join(share_dir,
@@ -70,12 +95,28 @@ def generate_launch_description():
         output='screen'
     )
 
-    launchDescriptioObject = LaunchDescription()
-
-    launchDescriptioObject.add_action(add_gz_resource_path)
-    launchDescriptioObject.add_action(gazeboLaunch)
-    launchDescriptioObject.add_action(spawnModelNodeGazebo)
-    launchDescriptioObject.add_action(nodeRobotStatePublisher)    
-    launchDescriptioObject.add_action(start_gazebo_ros_bridge_cmd)
-
-    return launchDescriptioObject
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            'spawn_x',
+            default_value='0.0',
+            description='X coordinate to spawn the robot at'
+        ),
+        DeclareLaunchArgument(
+            'spawn_y',
+            default_value='0.0',
+            description='Y coordinate to spawn the robot at'
+        ),
+        DeclareLaunchArgument(
+            'spawn_z',
+            default_value='0.25',
+            description='Z coordinate to spawn the robot at (above the ground - min 0.25)'
+        ),
+        add_gz_resource_path,
+        gazeboLaunch,
+        spawnModelNodeGazebo,
+        nodeRobotStatePublisher,
+        joint_state_publisher_gui_node,
+        rviz_node,
+        start_gazebo_ros_bridge_cmd
+        
+    ])

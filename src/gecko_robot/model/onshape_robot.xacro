@@ -30,7 +30,7 @@
     <visual>
       <origin xyz="0.127962 0.0712341 -0.00962078" rpy="0 -0 0"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/base_link.stl"/>
+        <mesh filename="package://gecko_robot/meshes/base_link.stl"/>
       </geometry>
       <material name="base_link_material">
         <color rgba="0.764706 0.545098 0.803922 1"/>
@@ -39,7 +39,7 @@
     <collision>
       <origin xyz="0.127962 0.0712341 -0.00962078" rpy="0 -0 0"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/base_link.stl"/>
+        <mesh filename="package://gecko_robot/meshes/base_link.stl"/>
       </geometry>
     </collision>
   </link>
@@ -54,7 +54,7 @@
     <visual>
       <origin xyz="0 -2.77556e-17 0.0075" rpy="3.14159 -6.16298e-33 -2.42375e-18"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
       <material name="leg_material">
         <color rgba="0.105882 0.333333 0 1"/>
@@ -63,7 +63,7 @@
     <collision>
       <origin xyz="0 -2.77556e-17 0.0075" rpy="3.14159 -6.16298e-33 -2.42375e-18"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
     </collision>
   </link>
@@ -86,7 +86,7 @@
     <visual>
       <origin xyz="-5.55112e-17 -5.55112e-17 0.0075" rpy="-3.14159 1.32734e-33 -2.95341e-17"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
       <material name="leg_2_material">
         <color rgba="0.105882 0.333333 0 1"/>
@@ -95,7 +95,7 @@
     <collision>
       <origin xyz="-5.55112e-17 -5.55112e-17 0.0075" rpy="-3.14159 1.32734e-33 -2.95341e-17"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
     </collision>
   </link>
@@ -118,7 +118,7 @@
     <visual>
       <origin xyz="0 0 0.0075" rpy="3.14159 -7.70372e-34 -4.01774e-17"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
       <material name="leg_3_material">
         <color rgba="0.105882 0.333333 0 1"/>
@@ -127,7 +127,7 @@
     <collision>
       <origin xyz="0 0 0.0075" rpy="3.14159 -7.70372e-34 -4.01774e-17"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
     </collision>
   </link>
@@ -150,7 +150,7 @@
     <visual>
       <origin xyz="-1.38778e-17 -1.38778e-17 0.0075" rpy="3.14159 2.18953e-47 1.9666e-18"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
       <material name="leg_4_material">
         <color rgba="0.105882 0.333333 0 1"/>
@@ -159,7 +159,7 @@
     <collision>
       <origin xyz="-1.38778e-17 -1.38778e-17 0.0075" rpy="3.14159 2.18953e-47 1.9666e-18"/>
       <geometry>
-        <mesh filename="package://gecko_robot/model/leg.stl"/>
+        <mesh filename="package://gecko_robot/meshes/leg.stl"/>
       </geometry>
     </collision>
   </link>
