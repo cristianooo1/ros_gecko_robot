@@ -11,9 +11,11 @@ def generate_launch_description():
 
     robotXacroName='gecko_robot'
     
+    
     namePackage = 'gecko_robot' 
 
-    modelFileRelativePath = 'model/diff_drive_robot.xacro' 
+    # modelFileRelativePath = 'model/diff_drive_robot.xacro'
+    modelFileRelativePath = 'model/onshape_robot.xacro' 
 
     pathModelFile = os.path.join(get_package_share_directory(namePackage), modelFileRelativePath) 
 
@@ -33,8 +35,8 @@ def generate_launch_description():
         executable='create',
         arguments=[
             '-name', robotXacroName,
-            '-topic', 'robot_description'
-            # '-z', '0.2'
+            '-topic', 'robot_description',
+            '-z', '0.25'
 
         ],
         output='screen'

@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/cb0e539256f574f2d490db78/w/91c431183e6e22a7b620fa0c/e/314ada7fe03ae790e1f4065a -->
+<robot name="gecko_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="/home/cristianooo/jazzy_ros2_robostack/src/gecko_robot/model/diff_drive_robot.gazebo" />
+
+  <link name="dummy_root">
+    <inertial>
+        <origin xyz="0.127962 0.0712341 0.00623375" rpy="0 0 0"/>
+        <mass value="3.87026"/>
+        <inertia ixx="0.0131855" ixy="0" ixz="0" iyy="0.0819855" iyz="0" izz="0.0944197"/>
+    </inertial>
+  </link>
+
+  <joint name="dummy_joint" type="fixed">
+      <parent link="dummy_root"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Link base_link -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.127962 0.0712341 0.00623375" rpy="0 0 0"/>
+      <mass value="3.87026"/>
+      <inertia ixx="0.0131855" ixy="0" ixz="0" iyy="0.0819855" iyz="0" izz="0.0944197"/>
+    </inertial>
+    <!-- Part base_link -->
+    <visual>
+      <origin xyz="0.127962 0.0712341 -0.00962078" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/base_link.stl"/>
+      </geometry>
+      <material name="base_link_material">
+        <color rgba="0.764706 0.545098 0.803922 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.127962 0.0712341 -0.00962078" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/base_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Link leg -->
+  <link name="leg">
+    <inertial>
+      <origin xyz="-6.39046e-18 0.118891 0.0300105" rpy="0 0 0"/>
+      <mass value="0.352713"/>
+      <inertia ixx="0.0015466" ixy="-3.84635e-20" ixz="2.13146e-20" iyy="0.000536313" iyz="-0.000329291" izz="0.00122196"/>
+    </inertial>
+    <!-- Part leg -->
+    <visual>
+      <origin xyz="0 -2.77556e-17 0.0075" rpy="3.14159 -6.16298e-33 -2.42375e-18"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+      <material name="leg_material">
+        <color rgba="0.105882 0.333333 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -2.77556e-17 0.0075" rpy="3.14159 -6.16298e-33 -2.42375e-18"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from base_link to leg -->
+  <joint name="leg1_FR" type="revolute">
+    <origin xyz="0.297962 0.0212341 0.0328792" rpy="3.14159 4.81114e-17 0.729701"/>
+    <parent link="base_link"/>
+    <child link="leg"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.0556968" upper="1.5151"/>
+  </joint>
+  <!-- Link leg_2 -->
+  <link name="leg_2">
+    <inertial>
+      <origin xyz="-6.05715e-17 0.118891 0.0300105" rpy="0 0 0"/>
+      <mass value="0.352713"/>
+      <inertia ixx="0.0015466" ixy="-7.43923e-20" ixz="1.76307e-20" iyy="0.000536313" iyz="-0.000329291" izz="0.00122196"/>
+    </inertial>
+    <!-- Part leg_2 -->
+    <visual>
+      <origin xyz="-5.55112e-17 -5.55112e-17 0.0075" rpy="-3.14159 1.32734e-33 -2.95341e-17"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+      <material name="leg_2_material">
+        <color rgba="0.105882 0.333333 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-5.55112e-17 -5.55112e-17 0.0075" rpy="-3.14159 1.32734e-33 -2.95341e-17"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from base_link to leg_2 -->
+  <joint name="leg3_FL" type="revolute">
+    <origin xyz="0.297962 0.121234 0.0328792" rpy="3.14159 7.89998e-18 2.456"/>
+    <parent link="base_link"/>
+    <child link="leg_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-1.47099" upper="0.099805"/>
+  </joint>
+  <!-- Link leg_3 -->
+  <link name="leg_3">
+    <inertial>
+      <origin xyz="5.02167e-20 0.118891 0.0300105" rpy="0 0 0"/>
+      <mass value="0.352713"/>
+      <inertia ixx="0.0015466" ixy="-6.77996e-20" ixz="3.47595e-21" iyy="0.000536313" iyz="-0.000329291" izz="0.00122196"/>
+    </inertial>
+    <!-- Part leg_3 -->
+    <visual>
+      <origin xyz="0 0 0.0075" rpy="3.14159 -7.70372e-34 -4.01774e-17"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+      <material name="leg_3_material">
+        <color rgba="0.105882 0.333333 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0075" rpy="3.14159 -7.70372e-34 -4.01774e-17"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from base_link to leg_3 -->
+  <joint name="leg2_BR" type="revolute">
+    <origin xyz="-0.0420382 0.0212341 0.0328792" rpy="3.14159 -4.00405e-18 0.257056"/>
+    <parent link="base_link"/>
+    <child link="leg_3"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-0.528342" upper="1.04245"/>
+  </joint>
+  <!-- Link leg_4 -->
+  <link name="leg_4">
+    <inertial>
+      <origin xyz="-2.65211e-17 0.118891 0.0300105" rpy="0 0 0"/>
+      <mass value="0.352713"/>
+      <inertia ixx="0.0015466" ixy="-5.98799e-20" ixz="3.86331e-20" iyy="0.000536313" iyz="-0.000329291" izz="0.00122196"/>
+    </inertial>
+    <!-- Part leg_4 -->
+    <visual>
+      <origin xyz="-1.38778e-17 -1.38778e-17 0.0075" rpy="3.14159 2.18953e-47 1.9666e-18"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+      <material name="leg_4_material">
+        <color rgba="0.105882 0.333333 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-1.38778e-17 -1.38778e-17 0.0075" rpy="3.14159 2.18953e-47 1.9666e-18"/>
+      <geometry>
+        <mesh filename="package://gecko_robot/model/leg.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joint from base_link to leg_4 -->
+  <joint name="leg4_BL" type="revolute">
+    <origin xyz="-0.0420382 0.121234 0.0328792" rpy="3.14159 1.83853e-31 2.4832"/>
+    <parent link="base_link"/>
+    <child link="leg_4"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-1.44379" upper="0.127005"/>
+  </joint>
+</robot>

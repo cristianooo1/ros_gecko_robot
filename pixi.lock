@@ -637,6 +637,7 @@ environments:
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joint-limits-4.33.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joint-state-broadcaster-4.28.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joint-state-publisher-2.4.0-np126py312h3bd2861_9.conda
+      - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joint-state-publisher-gui-2.4.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joy-3.3.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-kdl-parser-2.11.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-keyboard-handler-0.3.1-np126py312h3bd2861_9.conda
@@ -10867,6 +10868,25 @@ packages:
   license: BSD-3-Clause
   size: 47120
   timestamp: 1753563990451
+- conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joint-state-publisher-gui-2.4.0-np126py312h3bd2861_9.conda
+  sha256: e2e9655d78e63cdb8dc291e9582483dc001e5b8d23cc7e7a96e575dd1e40e002
+  md5: 3fb9e34df6ff70c0c10995518c17965e
+  depends:
+  - python
+  - ros-jazzy-joint-state-publisher
+  - ros-jazzy-python-qt-binding
+  - ros-jazzy-rclpy
+  - ros-jazzy-ros-workspace
+  - ros2-distro-mutex 0.10.* jazzy_*
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.26.4,<2.0a0
+  - ros2-distro-mutex >=0.10.0,<0.11.0a0
+  license: BSD-3-Clause
+  size: 28958
+  timestamp: 1753566243955
 - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-joy-3.3.0-np126py312h3bd2861_9.conda
   sha256: 62c313a0d30837ccf3b2aea5409d7f39b5b8d7972e91ceab473a16ca6c0b2bfe
   md5: d3e2e7b4a45d57bc3d274f844a3133f8

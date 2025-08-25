@@ -15,7 +15,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*')),
         (os.path.join('share', package_name, 'model'), glob('model/*')),
-        (os.path.join('share', package_name, 'parameters'), glob('parameters/*'))
+        (os.path.join('share', package_name, 'parameters'), glob('parameters/*')),
+        (os.path.join('share', package_name, 'config'), glob('config/*'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,

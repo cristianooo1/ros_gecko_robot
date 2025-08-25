@@ -13,7 +13,9 @@
   <test_depend>python3-pytest</test_depend>
 
   <depend>joint_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
   <depend>robot_state_publisher</depend>
+  <depend>rviz2</depend>
   <depend>ros_gz</depend>
   <depend>ros_gz.sim</depend>
   <depend>ros_gz_bridge</depend>
