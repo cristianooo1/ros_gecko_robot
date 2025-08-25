@@ -14,3 +14,7 @@ __pycache__/
 *~
 *.swp
 *.swo
+
+src/gecko_robot/model/OLD_materials.xacro
+src/gecko_robot/model/OLD_xacro_variables.xacro
+src/gecko_robot/model/OLD_diff_drive_robot.xacro
