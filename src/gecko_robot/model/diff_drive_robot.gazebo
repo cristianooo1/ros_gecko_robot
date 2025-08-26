@@ -2,23 +2,39 @@
 <robot>
 
 <gazebo reference="base_link">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Pink</material>
 </gazebo>
 
 <gazebo reference="leg">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
+</gazebo>
+
+<gazebo reference="foot">
+    <material>Gazebo/Blue</material>
 </gazebo>
 
 <gazebo reference="leg_2">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
+</gazebo>
+
+<gazebo reference="foot_2">
+    <material>Gazebo/Blue</material>
 </gazebo>
 
 <gazebo reference="leg_3">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
+</gazebo>
+
+<gazebo reference="foot_3">
+    <material>Gazebo/Blue</material>
 </gazebo>
 
 <gazebo reference="leg_4">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
+</gazebo>
+
+<gazebo reference="foot_4">
+    <material>Gazebo/Blue</material>
 </gazebo>
 
 </robot>
