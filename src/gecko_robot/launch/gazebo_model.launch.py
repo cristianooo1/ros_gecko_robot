@@ -21,7 +21,7 @@ def generate_launch_description():
         value=share_parent
     )
 
-    xacroFile = os.path.join(share_dir, 'model', 'onshape_robot.xacro')
+    xacroFile = os.path.join(share_dir, 'model', 'gecko_model.xacro')
     robotDescription = xacro.process_file(xacroFile).toxml()
     
     gazebo_rosPackageLaunch = PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('ros_gz_sim'), 
@@ -39,7 +39,7 @@ def generate_launch_description():
         arguments=[
             '-name', packageName,
             '-topic', 'robot_description',
-            '-z', '0.25'
+            '-z', '4.70'
 
         ],
         output='screen'

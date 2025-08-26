@@ -7,14 +7,15 @@ from ament_index_python.packages import get_package_share_directory
 
 packageName = 'gecko_robot'
 
-xacroRelativePath = 'model/onshape_robot.xacro'
+# xacroRelativePath = 'model/onshape_robot.xacro'
+xacroRelativePath = 'model/gecko_model.xacro'
 
 rvizRelativePath = 'config/config.rviz'
 
 def generate_launch_description():
 
     share_dir = get_package_share_directory(packageName) 
-    xacroFile = os.path.join(share_dir, 'model', 'onshape_robot.xacro')
+    xacroFile = os.path.join(share_dir, 'model', 'gecko_model.xacro')
     robotDescription = xacro.process_file(xacroFile).toxml()
 
     rvizPath = os.path.join(get_package_share_directory(packageName), rvizRelativePath)
