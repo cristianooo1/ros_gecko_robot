@@ -2,8 +2,8 @@
 <!-- Generated using onshape-to-robot -->
 <!-- Onshape https://cad.onshape.com/documents/cb0e539256f574f2d490db78/w/91c431183e6e22a7b620fa0c/e/f347b722bd3bd5fea800f857 -->
 <robot name="gecko_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  
-  <xacro:include filename="/home/cristianooo/jazzy_ros2_robostack/src/gecko_robot/model/diff_drive_robot.gazebo" />
+
+  <xacro:include filename="$(find gecko_robot)/model/gazebo.xacro" />
 
   <link name="dummy_root">
     <inertial>
@@ -169,7 +169,7 @@
     <parent link="base_link"/>
     <child link="leg_2"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-3.15303e-14" upper="1.5708"/>
+    <limit effort="10" velocity="10" lower="0" upper="1.5708"/>
   </joint>
   <!-- Link leg_3 -->
   <link name="leg_3">
@@ -299,4 +299,81 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="0" upper="1.5708"/>
   </joint>
+
+
+<ros2_control name="RobotSystem" type="system">
+
+  <hardware>
+    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+  </hardware>
+
+  <joint name="kneeFR">
+    <command_interface name="position">
+      <param name="min">-1.5708</param>
+      <param name="max">0</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="ankleFR">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">0.872665</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="kneeFL">
+    <command_interface name="position">
+      <param name="min">-1.5708</param>
+      <param name="max">0</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="ankleFL">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">0.872665</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="kneeBR">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">1.5708</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="ankleBR">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">0.872665</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="kneeBL">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">1.5708</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="ankleBL">
+    <command_interface name="position">
+      <param name="min">0</param>
+      <param name="max">0.872665</param>
+    </command_interface>
+    <state_interface name="position"/>
+  </joint>
+
+</ros2_control>
+
+
+
+
 </robot>

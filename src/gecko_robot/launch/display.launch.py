@@ -9,16 +9,19 @@ packageName = 'gecko_robot'
 
 # xacroRelativePath = 'model/onshape_robot.xacro'
 xacroRelativePath = 'model/gecko_model.xacro'
-
 rvizRelativePath = 'config/config.rviz'
+ros2controlRelativePath = 'config/robot_controller.yaml'
 
 def generate_launch_description():
 
     share_dir = get_package_share_directory(packageName) 
+
     xacroFile = os.path.join(share_dir, 'model', 'gecko_model.xacro')
     robotDescription = xacro.process_file(xacroFile).toxml()
 
     rvizPath = os.path.join(get_package_share_directory(packageName), rvizRelativePath)
+    
+    ros2controlPath = os.path.join(get_package_share_directory(packageName), ros2controlRelativePath)
 
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',

@@ -2,7 +2,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch.substitutions import LaunchConfiguration, TextSubstitution
 from launch import LaunchDescription
-from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription, DeclareLaunchArgument
+from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 import xacro 
@@ -41,7 +41,6 @@ def generate_launch_description():
     gazebo_rosPackageLaunch = PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('ros_gz_sim'), 
                                                                         'launch', 
                                                                         'gz_sim.launch.py'))
-    
     gazeboLaunch = IncludeLaunchDescription(gazebo_rosPackageLaunch, 
                                             launch_arguments={'gz_args': f'-r -v -v4 {world_path}',
                                                             'on_exit_shutdown': 'true'}.items())
@@ -59,7 +58,8 @@ def generate_launch_description():
             '-topic', '/robot_description',
             '-x', spawn_x,
             '-y', spawn_y,
-            '-z', spawn_z
+            '-z', spawn_z,
+            '-allow_renaming', 'true'
         ],
         output='screen'
     )
@@ -67,18 +67,18 @@ def generate_launch_description():
     nodeRobotStatePublisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        output='screen',
+        output='both',
         parameters=[{'robot_description': robotDescription,
                     'use_sim_time': True}]
     )
 
-    joint_state_publisher_gui_node = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui',
-        output="screen",
-        parameters=[{"use_sim_time": True}]
-    )
+    # joint_state_publisher_gui_node = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher_gui',
+    #     output="screen",
+    #     parameters=[{"use_sim_time": True}]
+    # )
 
     rviz_node = Node(
         package='rviz2',
@@ -105,6 +105,28 @@ def generate_launch_description():
         output='screen'
     )
 
+    controlNode = TimerAction(
+        period=5.0,
+        actions= [Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[ros2controlPath],
+        output="both"
+        )]
+    )
+
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"]
+    )
+
+    robot_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["leg_controller"]
+    )
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'spawn_x',
@@ -125,7 +147,10 @@ def generate_launch_description():
         gazeboLaunch,
         spawnModelNodeGazebo,
         nodeRobotStatePublisher,
-        joint_state_publisher_gui_node,
+        # joint_state_publisher_gui_node,
+        controlNode,
+        joint_state_broadcaster_spawner,
+        robot_controller_spawner,
         rviz_node,
         start_gazebo_ros_bridge_cmd
         
