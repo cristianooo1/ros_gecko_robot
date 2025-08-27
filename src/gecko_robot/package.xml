@@ -21,7 +21,9 @@
   <depend>ros_gz_sim</depend>
   <depend>ros_gz_bridge</depend>
   <depend>xacro</depend>
-  <depend>relpy</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>joint_trajectory_controller</depend>
   <depend>gz_ros2_control</depend>

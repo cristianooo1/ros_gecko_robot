@@ -28,7 +28,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        'publisher = gecko_robot.test:main',
+        'leg_teleop = gecko_robot.leg_teleop:main',
         ],
     },
 )
