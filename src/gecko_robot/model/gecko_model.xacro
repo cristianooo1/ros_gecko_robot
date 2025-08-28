@@ -91,6 +91,21 @@
       </geometry>
     </collision>
   </link>
+  <!-- Frame leg_tip_1 (dummy link + fixed joint) -->
+  <link name="leg_tip_1">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="leg_tip_1_frame" type="fixed">
+    <origin xyz="-0.00876701 -0.128869 -5.55112e-17" rpy="-2.35619 -1.5708 0"/>
+    <parent link="foot"/>
+    <child link="leg_tip_1"/>
+    <axis xyz="0 0 0"/>
+  </joint>
   <!-- Joint from leg to foot -->
   <joint name="ankleFR" type="revolute">
     <origin xyz="-5.72459e-17 0.152417 -6.93889e-18" rpy="1.5708 -0.785398 3.14159"/>
@@ -155,6 +170,21 @@
       </geometry>
     </collision>
   </link>
+  <!-- Frame leg_tip_2 (dummy link + fixed joint) -->
+  <link name="leg_tip_2">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="leg_tip_2_frame" type="fixed">
+    <origin xyz="-0.00876701 -0.128869 0" rpy="-2.35619 -1.5708 0"/>
+    <parent link="foot_2"/>
+    <child link="leg_tip_2"/>
+    <axis xyz="0 0 0"/>
+  </joint>
   <!-- Joint from leg_2 to foot_2 -->
   <joint name="ankleBR" type="revolute">
     <origin xyz="-4.16334e-17 0.152417 6.93889e-18" rpy="1.5708 -0.785398 6.7743e-16"/>
@@ -219,6 +249,21 @@
       </geometry>
     </collision>
   </link>
+  <!-- Frame leg_tip_3 (dummy link + fixed joint) -->
+  <link name="leg_tip_3">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="leg_tip_3_frame" type="fixed">
+    <origin xyz="-0.00876701 -0.128869 -5.55112e-17" rpy="-0.785398 1.5708 0"/>
+    <parent link="foot_3"/>
+    <child link="leg_tip_3"/>
+    <axis xyz="0 0 0"/>
+  </joint>
   <!-- Joint from leg_3 to foot_3 -->
   <joint name="ankleFL" type="revolute">
     <origin xyz="-2.08167e-17 0.152417 -6.93889e-18" rpy="-1.5708 0.785398 -3.14159"/>
@@ -283,6 +328,21 @@
       </geometry>
     </collision>
   </link>
+  <!-- Frame leg_tip_4 (dummy link + fixed joint) -->
+  <link name="leg_tip_4">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="leg_tip_4_frame" type="fixed">
+    <origin xyz="-0.00876701 -0.128869 5.55112e-17" rpy="-0.785398 1.5708 0"/>
+    <parent link="foot_4"/>
+    <child link="leg_tip_4"/>
+    <axis xyz="0 0 0"/>
+  </joint>
   <!-- Joint from leg_4 to foot_4 -->
   <joint name="ankleBL" type="revolute">
     <origin xyz="3.64292e-17 0.152417 -2.77556e-17" rpy="-1.5708 0.785398 -9.03452e-16"/>
