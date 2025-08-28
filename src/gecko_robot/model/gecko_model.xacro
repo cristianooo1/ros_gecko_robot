@@ -99,9 +99,9 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="0" upper="0.872665"/>
   </joint>
-  <!-- Joint from base_link to leg -->
+  <!-- Joint from base_link to leg  -->
   <joint name="kneeFR" type="revolute">
-    <origin xyz="0.15 -0.07 0.05" rpy="-1.77095e-22 2.22427e-22 -2.0944"/>
+    <origin xyz="0.15 -0.07 0.05" rpy="-1.77095e-22 2.22427e-22 -2.0944"/> 
     <parent link="base_link"/>
     <child link="leg"/>
     <axis xyz="0 0 1"/>

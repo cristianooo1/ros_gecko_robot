@@ -15,7 +15,8 @@ ros2controlRelativePath = 'config/robot_controller.yaml'
 def generate_launch_description():
 
     share_dir = get_package_share_directory(packageName) 
-
+    share_parent = os.path.dirname(share_dir)
+    
     xacroFile = os.path.join(share_dir, 'model', 'gecko_model.xacro')
     robotDescription = xacro.process_file(xacroFile).toxml()
 
