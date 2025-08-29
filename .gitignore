@@ -18,3 +18,5 @@ __pycache__/
 src/gecko_robot/model/OLD_materials.xacro
 src/gecko_robot/model/OLD_xacro_variables.xacro
 src/gecko_robot/model/OLD_diff_drive_robot.xacro
+
+src/gecko_robot/gecko_robot/IK_solver.py

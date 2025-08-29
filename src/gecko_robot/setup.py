@@ -30,6 +30,8 @@ setup(
         'console_scripts': [
         'leg_teleop = gecko_robot.leg_teleop:main',
         'trajectory_leg_teleop = gecko_robot.trajectory_leg_teleop:main',
+        'IK_solver = gecko_robot.IK_solver:main',
+        'test_kdl_imports = gecko_robot.test_kdl_imports:main',
         ],
     },
 )

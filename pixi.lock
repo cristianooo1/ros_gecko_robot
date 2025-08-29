@@ -660,6 +660,7 @@ environments:
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-kdl-parser-2.11.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-keyboard-handler-0.3.1-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-kinematics-interface-1.4.0-np126py312h3bd2861_9.conda
+      - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-kinematics-interface-kdl-1.4.0-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-laser-filters-2.0.9-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-laser-geometry-2.7.1-np126py312h3bd2861_9.conda
       - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-launch-3.4.5-np126py312h3bd2861_9.conda
@@ -11465,6 +11466,28 @@ packages:
   license: BSD-3-Clause
   size: 46181
   timestamp: 1753563471401
+- conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-kinematics-interface-kdl-1.4.0-np126py312h3bd2861_9.conda
+  sha256: 09a78261873e056c6866a8520b220602955aa6507a86cdeaf36f23edfdb54cd7
+  md5: 285c2bd7d1b5e0b66420ccba64670d93
+  depends:
+  - eigen
+  - python
+  - ros-jazzy-kdl-parser
+  - ros-jazzy-kinematics-interface
+  - ros-jazzy-pluginlib
+  - ros-jazzy-ros-workspace
+  - ros-jazzy-tf2-eigen-kdl
+  - ros2-distro-mutex 0.10.* jazzy_*
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - libgcc >=14
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.10.0,<0.11.0a0
+  - numpy >=1.26.4,<2.0a0
+  license: BSD-3-Clause
+  size: 100035
+  timestamp: 1753563851492
 - conda: https://conda.anaconda.org/robostack-jazzy/linux-64/ros-jazzy-laser-filters-2.0.9-np126py312h3bd2861_9.conda
   sha256: f95dab009ad02a9c745bd1ce633eef71ef9f85eb58d7203dc3ee5675690d07bc
   md5: 86627e6b057728f59445723e79be2410
