@@ -12,14 +12,27 @@ find_package(std_msgs REQUIRED)
 find_package(orocos_kdl_vendor REQUIRED)
 find_package(kdl_parser REQUIRED)
 
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  # "msg/Num.msg"
+  # "msg/Sphere.msg"
+  "srv/ComputeLegIK.srv"
+  DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
+)
+
 add_executable(cpp_IK src/cpp_IK.cpp)
+ament_target_dependencies(cpp_IK rclcpp std_msgs geometry_msgs orocos_kdl_vendor kdl_parser rosidl_default_runtime)
 
 target_include_directories(cpp_IK PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 target_compile_features(cpp_IK PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-ament_target_dependencies(cpp_IK rclcpp std_msgs orocos_kdl_vendor kdl_parser)
+rosidl_get_typesupport_target(cpp_typesupport_target
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+target_link_libraries(cpp_IK ${cpp_typesupport_target})
 
 install(TARGETS cpp_IK
   DESTINATION lib/${PROJECT_NAME})
@@ -36,4 +49,5 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+ament_export_dependencies(rosidl_default_runtime)
 ament_package()

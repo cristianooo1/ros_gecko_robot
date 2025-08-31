@@ -1,0 +1,8 @@
+string leg_tip                          # Request: name of the leg
+geometry_msgs/Point target_foot_pos     # Request: target foot position of the leg
+float64 curr_knee_joint                 # Request: current knee joint value
+float64 curr_ankle_joint                # Request: current ankle joint value
+---
+bool success_flag                       # Response: true if the IK was successfuly computed
+float64 tar_knee_joint                  # Response: computed knee joint value
+float64 tar_ankle_joint                 # Response: computed ankle joint value
