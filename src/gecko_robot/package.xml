@@ -34,6 +34,7 @@
   <depend>kdl_parser_py</depend>
   <depend>python_orocos_kdl</depend>
 
+  <depend>cpp_pkg</depend>
 
   <export>
     <build_type>ament_python</build_type>

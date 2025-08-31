@@ -32,6 +32,7 @@ setup(
         'trajectory_leg_teleop = gecko_robot.trajectory_leg_teleop:main',
         'IK_solver = gecko_robot.IK_solver:main',
         'test_kdl_imports = gecko_robot.test_kdl_imports:main',
+        'leg_ik_client = gecko_robot.leg_ik_client:main',
         ],
     },
 )
